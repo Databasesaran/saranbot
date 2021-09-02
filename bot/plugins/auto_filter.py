@@ -8,14 +8,14 @@ from pyrogram.errors import ButtonDataInvalid, FloodWait
 
 from bot.database import Database # pylint: disable=import-error
 from bot.bot import Bot # pylint: disable=import-error
-from bot import MT_CHANNEL, MASSAGE_PHOTO
+
 
 FIND = {}
 INVITE_LINK = {}
 ACTIVE_CHATS = {}
 db = Database()
 
-@Bot.on_message(filters.text & filters.group & ~filters.bot, group=0)
+@Bot.on_message(filters.text & filters.group, group=0)
 async def auto_filter(bot, update):
     """
     A Funtion To Handle Incoming Text And Reply With Appropriate Results
@@ -60,35 +60,37 @@ async def auto_filter(bot, update):
     filters = await db.get_filters(group_id, query)
     
     if filters:
-        results.append(
-                [
-                    InlineKeyboardButton("📢 Join My Main Channel 📢", url=f"https://t.me/{MT_CHANNEL}")
-                ]
-            )
+        #results.append(
+        #        [
+        #            InlineKeyboardButton("⭕️ MAIN CHANNEL ⭕️", url="https://t.me/on_air_movies")
+        #        ]
+        #    ) 
         for filter in filters: # iterating through each files
             file_name = filter.get("file_name")
             file_type = filter.get("file_type")
             file_link = filter.get("file_link")
-            file_size = int(filter.get("file_size", "0"))
-            
-            # from B to MiB
+            file_size = int(filter.get("file_size", ""))
+            file_size = round((file_size/1024),2) # from B to KB
+            size = ""
+            file_KB = ""
+            file_MB = ""
+            file_GB = ""
             
             if file_size < 1024:
-                file_size = f"[{file_size} B]"
-            elif file_size < (1024**2):
-                file_size = f"[{str(round(file_size/1024, 2))} KB] "
-            elif file_size < (1024**3):
-                file_size = f"[{str(round(file_size/(1024**2), 2))} MB] "
-            elif file_size < (1024**4):
-                file_size = f"[{str(round(file_size/(1024**3), 2))} GB] "
+                file_KB = f"[{str(round(file_size,2))} KB]"
+                size = file_KB
+            elif file_size < (1024*1024):
+                file_MB = f"[{str(round((file_size/1024),2))} MB]"
+                size = file_MB
+            else:
+                file_GB = f"[{str(round((file_size/(1024*1024)),2))} GB]"
+                size = file_GB
+                
+            file_name = size + " - 🎬 " + file_name
             
+            print(file_name)
+            #file_size = str(file_size) + " KB" if file_size < 1024 elif file_size < 1024 else str(round(file_size/1024)) + " GiB"  #"📁 " + 
             
-            file_size = "" if file_size == ("[0 B]") else file_size
-            
-            # add emoji down below inside " " if you want..
-            button_text = f"{file_size} || {file_name}"
-            
-
             if file_type == "video":
                 if allow_video: 
                     pass
@@ -124,17 +126,30 @@ async def auto_filter(bot, update):
                 bot_ = FIND.get("bot_details")
                 file_link = f"https://t.me/{bot_.username}?start={unique_id}"
             
+            
+            
             results.append(
                 [
-                    InlineKeyboardButton(button_text, url=file_link),
+                    InlineKeyboardButton(file_name, url=file_link)
                 ]
             )
-        
+        #https://telegra.ph/file/f3ea3421859204e383b03.jpg
     else:
-        return # return if no files found for that query
+        Send_message=await bot.send_photo(
+                chat_id=update.chat.id,
+                photo="https://telegra.ph/file/b1fc83d1e048f88d73be9.jpg",
+                caption=f"<b>❗️Couldn't Find This Movie❗️\n\n ⚠️Just Send Me Movie/Series Name Without Spelling Mistake.Search Google To Get Currect Movie Name⚠️</b> \n\n "
+                        f"<b>⭕️You can only get a movie if you hit the correct spelling of the movie‌‌</b>\n"
+                        f"⭕️sent : [𝚖𝚘𝚟𝚒𝚎 𝚗𝚊𝚖𝚎 & 𝚢𝚎𝚊𝚛] 𝚘𝚗𝚕𝚢 ⭕️ 🥺",
+                parse_mode="html",
+                reply_to_message_id=update.message_id
+            )
+        await asyncio.sleep(15) # in seconds
+        await Send_message.delete()
+        # await bot.delete_messages(update.chat.id,update.message_id)
+        return  # return if no files found for that query
     
-
-    if len(results) == 0: # double check
+    if len(results) == 0:   # double check
         return
     
     else:
@@ -144,7 +159,7 @@ async def auto_filter(bot, update):
         result += [results[i * max_per_page :(i + 1) * max_per_page ] for i in range((len(results) + max_per_page - 1) // max_per_page )]
         len_result = len(result)
         len_results = len(results)
-        results = None # Free Up Memory
+        results = None   # Free Up Memory
         
         FIND[query] = {"results": result, "total_len": len_results, "max_pages": max_pages} # TrojanzHex's Idea Of Dicts😅
 
@@ -152,13 +167,13 @@ async def auto_filter(bot, update):
         if len_result != 1:
             result[0].append(
                 [
-                    InlineKeyboardButton("Next➡️", callback_data=f"navigate(0|next|{query})")
+                    InlineKeyboardButton("Next 👉", callback_data=f"navigate(0|next|{query})")
                 ]
             )
         
         # Just A Decaration
         result[0].append([
-            InlineKeyboardButton(f"📑 𝙿𝚊𝚐𝚎 1/{len_result if len_result < max_pages else max_pages} 📑", callback_data="ignore")
+            InlineKeyboardButton(f"⭕️ Page 1/{len_result if len_result < max_pages else max_pages} ⭕️", callback_data="ignore")
         ])
         
         
@@ -199,21 +214,40 @@ async def auto_filter(bot, update):
             for x in ibuttons:
                 result[0].insert(0, x) #Insert invite link buttons at first of page
                 
-            ibuttons = None # Free Up Memory...
+            ibuttons = None     # Free Up Memory...
             achatId = None
-            
-            
+        
+        ibuttonss = []
+        ibuttonss.append(
+                        [
+                            InlineKeyboardButton("⭕️ channel ⭕️", url="https://t.me/joinchat/4-Quex2FaFhjMDM1")
+                        ]
+                    )
+        for x in ibuttonss:
+                result[0].insert(0, x) #Insert invite link buttons at first of page
+        
         reply_markup = InlineKeyboardMarkup(result[0])
 
         try:
             await bot.send_photo(
-                chat_id = update.chat.id,
-                photo= MASSAGE_PHOTO,
-                caption=f"<b>🗂️Total File :- {(len_results)} </b>\n<b>🎬File Name :-</b> <code>{query}</code>\n<b>👤Requested By</b> {update.from_user.mention}",
+                chat_id=update.chat.id,
+                photo="https://telegra.ph/file/b1fc83d1e048f88d73be9.jpg",
+                caption=f"<b>⭕️No Of Files :</b> <code><b><i>{len_results}</i></b></code>\n"
+                        f"<b>⭕️Your Query :</b> <code><b><i>{query}</i></b></code>\n"
+                        f"<b>⭕️Requested By :</b> <b><code>{update.from_user.first_name}</code></b>",
                 reply_markup=reply_markup,
                 parse_mode="html",
                 reply_to_message_id=update.message_id
             )
+            # await bot.send_message(
+            #     chat_id = update.chat.id,
+            #     text=f"We Found <code><b><i>{len_results}</i></b></code> "
+            #          f"Results For Your Query: <code><b><i>{query}</i></b></code>, "
+            #          f"Requested By <b><code>{update.from_user.first_name}</code></b>",
+            #     reply_markup=reply_markup,
+            #     parse_mode="html",
+            #     reply_to_message_id=update.message_id
+            # )
 
         except ButtonDataInvalid:
             print(result[0])
@@ -290,4 +324,4 @@ async def recacher(group_id, ReCacheInvite=True, ReCacheActive=False, bot=Bot, u
                 achatId.append(int(x["chat_id"]))
             
             ACTIVE_CHATS[str(group_id)] = achatId
-    return 
+    return
