@@ -26,7 +26,8 @@ Team [Mo Tech](https://Telegram.dog/Mo_Tech_YT)
 <a href="https://youtu.be/OTqZmADyOjU"><img src="https://img.shields.io/youtube/views/OTqZmADyOjU?style=social">
 
 ##### Deploy On Railway.app
-
+<a href="https://youtu.be/zDcckqRBIlM"><img src="https://img.shields.io/badge/How%20To%20Deploy-blue.svg?logo=Youtube"></a>
+<a href="https://youtu.be/zDcckqRBIlM"><img src="https://img.shields.io/youtube/views/zDcckqRBIlM?style=social">
 
 ### Credits
 
