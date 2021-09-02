@@ -17,7 +17,7 @@ MT_GROUP = os.environ.get("GROUP")
 
 MT_CHANNEL = os.environ.get("CHANNEL")
 
-MT_LINK = "t.me/Mo_Tech_YT"
+MT_LINK = "https://youtu.be/zDcckqRBIlM"
 
 MASSAGE_PHOTO = os.environ.get("PHOTO")
 
