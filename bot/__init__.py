@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# (c) @AlbertEinsteinTG & MRK_YT
+# (c) @AlbertEinsteinTG
 
 import os
 import logging
@@ -9,17 +9,6 @@ import time
 from logging.handlers import RotatingFileHandler
 
 from .translation import Translation
-
-# Created https://github.com/MRK-YT 
-MT_UPDATE = os.environ.get("UPDATE")
-
-MT_GROUP = os.environ.get("GROUP")
-
-MT_CHANNEL = os.environ.get("CHANNEL")
-
-MT_LINK = "https://youtu.be/zDcckqRBIlM"
-
-MASSAGE_PHOTO = os.environ.get("PHOTO")
 
 # Change Accordingly While Deploying To A VPS
 APP_ID = int(os.environ.get("APP_ID"))
