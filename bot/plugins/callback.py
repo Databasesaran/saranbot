@@ -5,13 +5,11 @@ import asyncio
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, UserNotParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
-from bot import MT_GROUP, MT_CHANNEL, MT_LINK
-from bot.motech import MT_UPDATES, TEAM
 
 from bot import start_uptime, Translation, VERIFY # pylint: disable=import-error
 from bot.plugins.auto_filter import ( # pylint: disable=import-error
-    FIND, 
-    INVITE_LINK, 
+    FIND,
+    INVITE_LINK,   
     ACTIVE_CHATS,
     recacher,
     gen_invite_links
@@ -54,7 +52,7 @@ async def cb_navg(bot, update: CallbackQuery):
         VERIFY[str(chat_id)] = admin_list
     
     if not ((user_id == ruser_id) or (user_id in admin_list)): # Checks if user is same as requested user or is admin
-        await update.answer("Nice Try ;)",show_alert=True)
+        await update.answer("⭕️ യെടാ മോനേ ഇത് നിനക്ക് ഉള്ളതല്ല ⭕️",show_alert=True)
         return
 
 
@@ -83,7 +81,7 @@ async def cb_navg(bot, update: CallbackQuery):
 
     if ((index_val + 1 )== max_pages) or ((index_val + 1) == len(results)): # Max Pages
         temp_results.append([
-            InlineKeyboardButton("«««", callback_data=f"navigate({index_val}|back|{query})")
+            InlineKeyboardButton("👈 Back", callback_data=f"navigate({index_val}|back|{query})")
         ])
 
     elif int(index_val) == 0:
@@ -91,13 +89,13 @@ async def cb_navg(bot, update: CallbackQuery):
 
     else:
         temp_results.append([
-            InlineKeyboardButton("⬅️Back", callback_data=f"navigate({index_val}|back|{query})"),
-            InlineKeyboardButton("Next➡️", callback_data=f"navigate({index_val}|next|{query})")
+            InlineKeyboardButton("👈 Back", callback_data=f"navigate({index_val}|back|{query})"),
+            InlineKeyboardButton("Next 👉", callback_data=f"navigate({index_val}|next|{query})")
         ])
 
     if not int(index_val) == 0:    
         temp_results.append([
-            InlineKeyboardButton(f"📑 Page {index_val + 1}/{len(results) if len(results) < max_pages else max_pages} 📑", callback_data="ignore")
+            InlineKeyboardButton(f"⭕️ Page {index_val + 1}/{len(results) if len(results) < max_pages else max_pages} ⭕️", callback_data="ignore")
         ])
     
     if show_invite and int(index_val) !=0 :
@@ -144,7 +142,7 @@ async def cb_navg(bot, update: CallbackQuery):
     
     reply_markup = InlineKeyboardMarkup(temp_results)
     
-    text=f"<b>🗂️Total File :- {leng}</b>\n<b>🎬Movie Name :-</b> <code>{query}</code>"
+    text=f"<i>⭕️We Found</i> <code><b><i>{leng}</i></b></code> <i>⭕️Results For Your Query:</i> <code><b><i>{query}</i></b></code>"
         
     try:
         await update.message.edit(
@@ -954,7 +952,7 @@ async def cb_config(bot, update: CallbackQuery):
     mf_count = settings["configs"]["max_results"]
     mr_count = settings["configs"]["max_per_page"]
     show_invite = settings["configs"]["show_invite_link"]
-    pm_file_chat  = settings["configs"].get("pm_fchat", False)
+    pm_file_chat  = settings["configs"]["pm_fchat"]
     accuracy_point = settings["configs"].get("accuracy", 0.80)
     
     text=f"<i><b>Configure Your <u><code>{chat_name}</code></u> Group's Filter Settings...</b></i>\n"
@@ -1205,37 +1203,37 @@ async def cb_max_results(bot, update: CallbackQuery):
         [
             InlineKeyboardButton
                 (
-                    "50 Results", callback_data=f"set(results|50|{chat_id}|{count})"
+                    "📃 50 Results", callback_data=f"set(results|50|{chat_id}|{count})"
                 )
         ],
         [
             InlineKeyboardButton
                 (
-                    "100 Results", callback_data=f"set(results|100|{chat_id}|{count})"
+                    "📃 100 Results", callback_data=f"set(results|100|{chat_id}|{count})"
                 )
         ],
         [
             InlineKeyboardButton
                 (
-                    "150 Results", callback_data=f"set(results|150|{chat_id}|{count})"
+                    "📃 150 Results", callback_data=f"set(results|150|{chat_id}|{count})"
                 )
         ],
         [
             InlineKeyboardButton
                 (
-                    "200 Results", callback_data=f"set(results|200|{chat_id}|{count})"
+                    "📃 200 Results", callback_data=f"set(results|200|{chat_id}|{count})"
                 )
         ],
         [
             InlineKeyboardButton
                 (
-                    "250 Results", callback_data=f"set(results|250|{chat_id}|{count})"
+                    "📃 250 Results", callback_data=f"set(results|250|{chat_id}|{count})"
                 )
         ],
         [
             InlineKeyboardButton
                 (
-                    "300 Results", callback_data=f"set(results|300|{chat_id}|{count})"
+                    "📃 300 Results", callback_data=f"set(results|300|{chat_id}|{count})"
                 )
         ],
         [
@@ -1602,15 +1600,15 @@ async def cb_about(bot, update: CallbackQuery):
 
     text=f"<i><u>Bot's Status</u></i>\n"
     text+=f"\n<b><i>Bot's Uptime:</i></b> <code>{time_formatter(time.time() - start_uptime)}</code>\n"
-    text+=f"\n<b><i>Bot Funtion:</i></b> <i>Auto Filter Files</i>\n"
-    text+=f"""\n<b><i>Bot Support:</i></b> <a href="https://t.me/Mo_Tech_YT">Mo Tech YT</a>\n"""
-    text+="""\n<b><i>Source Code:</i></b> <a href="https://github.com/Mo_Tech_YT/Pro-Filter-Bot-V2.0">Source</a>"""
+    text+=f"\n<b><i>Bot Funtion:</i></b> <i>Pro Auto File Filter Bot</i>\n"
+    text+=f"""\n<b><i>Bot Support:</i></b> <a href="https://t.me/Mo_TECH_YT">MoTechYT</a>\n"""
+    text+="""\n<b><i>Source Code:</i></b> <a href="https://github.com/MRK_YT/Pro-Auto-Filter-Bot">Source</a>"""
 
     buttons = [
         [
             InlineKeyboardButton
                 (
-                    "My Dev ⚡", url="https://t.me/Mo_Tech_Group"
+                    "My Dev ⚡", url="https://t.me/MRK_YT"
                 ),
                 
             InlineKeyboardButton
@@ -1641,18 +1639,13 @@ async def callback_data(bot, update: CallbackQuery):
 
     if query_data == "start":
         buttons = [[
-            InlineKeyboardButton('🗣️ Group', url=f'https://t.me/{MT_GROUP}'),
-            InlineKeyboardButton('📢 Channel', url =f'https://t.me/{MT_CHANNEL}')
-        ],[
-            InlineKeyboardButton('🤔Help', callback_data="help"),
-            InlineKeyboardButton('About😎', callback_data="about"),
-            InlineKeyboardButton('Close❌️', callback_data="close")
+            InlineKeyboardButton('𝙷𝚎𝚕𝚙 🤔', callback_data="help")
         ]]
     
         reply_markup = InlineKeyboardMarkup(buttons)
         
         await update.message.edit_text(
-            Translation.START_TEXT.format(update.from_user.mention, MT_GROUP, TEAM),
+            Translation.START_TEXT.format(update.from_user.mention),
             reply_markup=reply_markup,
             parse_mode="html",
             disable_web_page_preview=True
@@ -1661,14 +1654,10 @@ async def callback_data(bot, update: CallbackQuery):
 
     elif query_data == "help":
         buttons = [[
-            InlineKeyboardButton('Support', url='t.me/Mo_Tech_Group'),
-            InlineKeyboardButton('Bot Updates', url=f't.me/{MT_UPDATES}')
+            InlineKeyboardButton('Home ⚡', callback_data='start'),
+            InlineKeyboardButton('About 🚩', callback_data='about')
         ],[
-            InlineKeyboardButton('🖥️ How To Own This Bot 🖥️', url=f'{MT_LINK}')
-        ],[   
-            InlineKeyboardButton('🏠Home', callback_data='start'),
-            InlineKeyboardButton('About😎', callback_data='about'),
-            InlineKeyboardButton('Close❌️', callback_data='close')
+            InlineKeyboardButton('Close 🔐', callback_data='close')
         ]]
     
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -1683,10 +1672,12 @@ async def callback_data(bot, update: CallbackQuery):
 
     elif query_data == "about": 
         buttons = [[
-            InlineKeyboardButton('🖥️ How To Own This Bot 🖥️', url=f'{MT_LINK}')
+            InlineKeyboardButton('👤 @𝙼𝚛𝚔_𝚈𝚃 👤', url='https://t.me/MRK_YT')
         ],[
-            InlineKeyboardButton('🏠Home', callback_data='start'),
-            InlineKeyboardButton('Close❌️', callback_data='close')
+            InlineKeyboardButton('𝙼𝚊𝚜𝚝𝚎𝚛 @𝙰𝚕𝚋𝚎𝚛𝚝𝙴𝚒𝚗𝚜𝚝𝚎𝚒𝚗𝚃𝙶', url='https://t.me/AlbertEinsteinTG')
+        ],[
+            InlineKeyboardButton('🏠 𝙷𝚘𝚖𝚎', callback_data='start'),
+            InlineKeyboardButton('𝙲𝚕𝚘𝚜𝚎 🔐', callback_data='close')
         ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -1715,3 +1706,4 @@ def time_formatter(seconds: float) -> str:
         ((str(minutes) + "m, ") if minutes else "") + \
         ((str(seconds) + "s") if seconds else "")
     return tmp
+
