@@ -1,43 +1,27 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# (c) @AlbertEinsteinTG @MRK_YT
+# (c) @AlbertEinsteinTG & @MRK_YT
 
 class Translation(object):
     
-    START_TEXT = """👋Hey {},
+    START_TEXT = """<b>🙋‍♂️ mowna {}!!</b>
 
-I'm an Autofilter bot v2.0 and you can not Add Me to your Group. I was made for <a href="t.me/{}">this one group</a>. So don't waste your Time...\n\n{}"""
+<b> ⭕️ സിനിമയുടെ ലിങ്ക് ആണ് വേണ്ടതെങ്കിൽ തായെ ഉള്ള ഗ്രൂപ്പിൽ സിനിമയുടെ പേര് ടൈപ്പ് ചെയ്യ്, അപ്പോൽ ഞാൻ ലിങ്ക് തരാം എന്നിട്ട് ഇവിടെ വന്ന് start കൊടുക്കണം😜
+ഇനി ഇനേക്കൊണ്ട് വീണ്ടും വീണ്ടും പറയിപ്പിക്കരുത്. 🤷‍♂ ⭕️ </b>
 
-
+<b> 👇👇ഇതാണ് മൂവി ചോദിക്കുന്ന ഗ്രൂപ്പ് 👇👇</b>"""    
+    
     HELP_TEXT = """
-<b><u>Bot Commands (Works Only In Groups)</u></b>
-
-☞ <code>/add chat_id</code> - <b>To Connect A Group With A Channel (Bot Should Be Admin With Full Previlages In Both Group And Channel)</b>
-   
-☞ <code>/del chat_id</code> - <b>To disconnect A Group With A Channel</b>
-     
-☞ <code>/delall</code>  - <b>This Command Will Disconnect All Connected Channel With The Group And Deletes All Its File From DB</b>
-    
-☞ <code>/settings</code> -  <b>This Command Will Display You A Settings Pannel Instance Which Can Be Used To Tweek Bot's Settings Accordingly</b>
-
-   ☞ <code>Channel</code> - <b>Button Will Show You All The Connected Chats With The Group And Will Show Buttons Correspnding To There Order For Furthur Controls</b>
-            
-   ☞ <code>Filter Types</code> - <b>Button Will Show You The 3 Filter Option Available In Bot... Pressing Each Buttons Will Either Enable or Disable Them And This Will Take Into Action As Soon As You Use Them Without The Need Of A Restart</b>
-
-   ☞ <code>Configure</code> - <b>Button Will Helps You To Change No. of Pages/ Buttons Per Page/ Total Result Without Acutally Editing The Repo... Also It Provide Option To Enable/Disable For Showing Invite Link In Each Results</b>
-            
-   ☞ <code>Status</code> - <b>Button Will Shows The Stats Of Your Channel</b>
-        
-<b><a href="https://t.me/Mo_Tech_YT">© Mo Tech YT</a></b>
+<b>HELP ചോദിയ്ക്കാൻ ഇത് നിന്റെ വമ്പാടി തറവാട് അല്ല... കിട്ടുന്ന MOVIES DOWNLOAD ചെയ്തോണ്ട് പോയിക്കോണം...</b>
 """
     
-    ABOUT_TEXT = """<b>☞ 📃Name</b> : <b>Pro Auto Filter Bot V2.O</b>
+    ABOUT_TEXT = """<b>➥ 🇲🇰</b> : <b>Pro Auto Filter Bot</b>
+    
+<b>➥ 😎Creator</b> : <b>@AlbertEinstein_TG</b> 
 
-<b>☞ 🗣️Language</b> : Python
+<b>➥ 👨‍💻Editor</b> : <b> @on_air_movies </b>
 
-<b>☞ 📚Library</b> : Pyrogram Asyncio 1.13.0
+<b>➥ 🗣️Language</b> : <b>Python3</b>
 
-<b>☞ 📖Source Code</b> : <a href="https://github.com/MoTechYT/Pro-Auto-Filter-Bot-V2.o">😋Click Here</a></b>
+<b>➥ 📚Library</b> : <b><a href="https://docs.pyrogram.org">Pyrogram Asyncio 1.13.0 </a></b>
 """
-
-    TEAM = """Team [MoTech YT](t.me/Mo_Tech_YT)"""
