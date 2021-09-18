@@ -220,7 +220,7 @@ async def auto_filter(bot, update):
         ibuttonss = []
         ibuttonss.append(
                         [
-                            InlineKeyboardButton("⭕️ channel ⭕️", url="https://t.me/joinchat/4-Quex2FaFhjMDM1")
+                            InlineKeyboardButton("👭click and share👭", url="https://telegram.me/share/url?url=t.me/joinchat/q4xMr02fvA9jNzQ1")
                         ]
                     )
         for x in ibuttonss:
