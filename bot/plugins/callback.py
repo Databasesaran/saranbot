@@ -142,7 +142,7 @@ async def cb_navg(bot, update: CallbackQuery):
     
     reply_markup = InlineKeyboardMarkup(temp_results)
     
-    text=f"<b>🎬 ᴍᴏᴠɪᴇ ɴᴀᴍᴇ :</b> <code>{query}</code>\n<b>🔺 𝙽𝙾 𝙾𝙵 𝙵𝙸𝙻𝙴𝚂 : <code>{leng}</code>"
+    text=f"<b>🎬 ᴍᴏᴠɪᴇ ɴᴀᴍᴇ :</b> <code>{query}</code>\n<b>🔺 𝙽𝙾 𝙾𝙵 𝙵𝙸𝙻𝙴𝚂 : <code>{leng}</code>\n♻️ᴄʜᴀɴɴᴇʟ»»@on_air_movies\n🇲🇰ᴘᴏᴡᴇʀᴇᴅ.ʙʏ»»@On_air_Filter_bot"
         
     try:
         await update.message.edit(
