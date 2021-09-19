@@ -137,10 +137,10 @@ async def auto_filter(bot, update):
     else:
         Send_message=await bot.send_photo(
                 chat_id=update.chat.id,
-                photo="https://telegra.ph/file/3bc31abd2c8b92758dfc5.jpg",
-                caption=f"<b>⚠️Just Send Me Movie/Series Name Without Spelling Mistake.Search Google To Get Currect Movie Name⚠️</b> \n\n "
-                        f"<b>⭕️You can only get a movie if you hit the correct spelling of the movie‌‌</b>\n"
-                        f"⭕️sent : [𝚖𝚘𝚟𝚒𝚎 𝚗𝚊𝚖𝚎 & 𝚢𝚎𝚊𝚛] 𝚘𝚗𝚕𝚢 ⭕️ 🥺",
+                photo="https://telegra.ph/file/eeed28e24189e59e6255c.jpg",
+                caption=f"<b>നിങ്ങൾ ഉദ്ദേശിക്കുന്ന മൂവി ഏതാണ് എന്ന് എനിക്ക് 🙄അറിയാൻ കഴിയുന്നില്ല‌‌\nI do not know what movie you mean‌‌</b>\n\n<i>⚠️Just Send Me Movie/Series Name Without Spelling Mistake.Search Google To Get Currect Movie Name⚠️</i>\n"
+                        f"<i>⭕️You can only get a movie if you hit the correct spelling of the movie‌‌</i>\n"
+                        f"<b>Try to find a movie in 👉 @On_air_Filter_bot </b>",
                 parse_mode="html",
                 reply_to_message_id=update.message_id
             )
