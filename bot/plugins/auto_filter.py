@@ -62,7 +62,7 @@ async def auto_filter(bot, update):
     if filters:
         #results.append(
         #        [
-        #            InlineKeyboardButton("⭕️ MAIN CHANNEL ⭕️", url="https://t.me/on_air_movies")
+        #            InlineKeyboardButton("⭕️ MAIN CHANNEL ⭕️", url="https://t.me/joinchat/4-Quex2FaFhjMDM1")
         #        ]
         #    ) 
         for filter in filters: # iterating through each files
@@ -86,7 +86,7 @@ async def auto_filter(bot, update):
                 file_GB = f"[{str(round((file_size/(1024*1024)),2))} GB]"
                 size = file_GB
                 
-            file_name = size + " - 🎬 " + file_name
+            file_name = size + " 🎥 " + file_name
             
             print(file_name)
             #file_size = str(file_size) + " KB" if file_size < 1024 elif file_size < 1024 else str(round(file_size/1024)) + " GiB"  #"📁 " + 
@@ -139,8 +139,8 @@ async def auto_filter(bot, update):
                 chat_id=update.chat.id,
                 photo="https://telegra.ph/file/eeed28e24189e59e6255c.jpg",
                 caption=f"<b>നിങ്ങൾ ഉദ്ദേശിക്കുന്ന മൂവി ഏതാണ് എന്ന് എനിക്ക് 🙄അറിയാൻ കഴിയുന്നില്ല‌‌\nI do not know what movie you mean‌‌</b>\n\n<i>⚠️Just Send Me Movie/Series Name Without Spelling Mistake.Search Google To Get Currect Movie Name⚠️</i>\n"
-                        f"<i>⭕️You can only get a movie if you hit the correct spelling of the movie‌‌</i>\n"
-                        f"<b>Try to find a movie in 👉 @On_air_Filter_bot </b>",
+                        f"<i>⭕️You can only get a movie if you hit the correct spelling of the movie‌‌</i>\n\n"
+                        f"<b>Try to find a movie in👉 @On_air_Filter_bot </b>",
                 parse_mode="html",
                 reply_to_message_id=update.message_id
             )
@@ -220,7 +220,7 @@ async def auto_filter(bot, update):
         ibuttonss = []
         ibuttonss.append(
                         [
-                            InlineKeyboardButton("👭click and share👭", url="https://telegram.me/share/url?url=t.me/joinchat/q4xMr02fvA9jNzQ1")
+                            InlineKeyboardButton("🎬 📌click and share📌 🎬", url="https://telegram.me/share/url?url=t.me/joinchat/q4xMr02fvA9jNzQ1")
                         ]
                     )
         for x in ibuttonss:
