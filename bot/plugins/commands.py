@@ -28,7 +28,7 @@ async def start(bot, update):
             await update.reply_cached_media(
                 file_id,
                 quote=True,
-                caption ="© <a href="https://t.me/joinchat/q4xMr02fvA9jNzQ1"> on air movies </a>\n⭕️ <b>file name ⭕️ 👉  </b>""<code>" + file_name + "</code>""\n\n»»————★————-««\n\n<b>⭕️𝙲𝚑𝚊𝚗𝚗𝚎𝚕-- @on_air_movies\n👇𝙼𝚘𝚟𝚒𝚎 requesting 𝚐𝚛𝚘𝚞𝚙👇</b>",
+                caption ="© @on_air_movies \n⭕️ <b>file name ⭕️ 👉  </b>""<code>" + file_name + "</code>""\n\n»»————★————-««\n\n<b>⭕️𝙲𝚑𝚊𝚗𝚗𝚎𝚕-- @on_air_movies\n👇𝙼𝚘𝚟𝚒𝚎 requesting 𝚐𝚛𝚘𝚞𝚙👇</b>",
                 parse_mode="html",
                 reply_markup=InlineKeyboardMarkup(
                     [
