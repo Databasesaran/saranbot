@@ -17,7 +17,7 @@ class Translation(object):
     
     ABOUT_TEXT = """<b>➥ 🇲🇰</b> : <b>Pro Auto Filter Bot</b>
     
-<b>➥ 😎Creator</b> : <b>@AlbertEinstein_TG</b> 
+<b>➥ ⭕️ Creator</b> : <b>@On_air_Filter_bot</b> 
 
 <b>➥ 👨‍💻Editor</b> : <b> @on_air_movies </b>
 
