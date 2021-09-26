@@ -98,3 +98,19 @@ async def about(bot, update):
         parse_mode="html",
         reply_to_message_id=update.message_id
     )
+
+@Client.on_message(filters.command(["onair"]) & filters.private, group=1)
+async def help(bot, update):
+    buttons = [[
+        InlineKeyboardButton('👉 click here 👈', url="https://t.me/movie_requesting_group_rules/4")
+    ]]
+    
+    reply_markup = InlineKeyboardMarkup(buttons)
+    
+    await bot.send_message(
+        chat_id=update.chat.id,
+        text=Translation.ONAIR_TEXT,
+        reply_markup=reply_markup,
+        parse_mode="html",
+        reply_to_message_id=update.message_id
+    )
