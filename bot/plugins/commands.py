@@ -100,7 +100,7 @@ async def about(bot, update):
     )
 
 @Client.on_message(filters.command(["onair"]) & filters.private, group=1)
-async def help(bot, update):
+async def onair(bot, update):
     buttons = [[
         InlineKeyboardButton('👉 click here 👈', url="https://t.me/movie_requesting_group_rules/4")
     ]]
