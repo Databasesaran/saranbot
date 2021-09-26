@@ -64,10 +64,10 @@ async def start(bot, update):
     )
 
 
-@Client.on_message(filters.command(["help"]) & filters.private, group=1)
+@Client.on_message(filters.command(["link"]) & filters.private, group=1)
 async def help(bot, update):
     buttons = [[
-        InlineKeyboardButton('⭕️Close⭕️', callback_data='close')
+        InlineKeyboardButton('🌀 click & share 🌀', url="https://telegram.me/share/url?url=t.me/joinchat/q4xMr02fvA9jNzQ1")
     ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
