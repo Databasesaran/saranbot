@@ -86,7 +86,7 @@ async def auto_filter(bot, update):
                 file_GB = f"[{str(round((file_size/(1024*1024)),2))} GB]"
                 size = file_GB
                 
-            file_name = size + " 🎥 " + file_name
+            file_name = " 🎬 " + file_name + " 🎪 " + size 
             
             print(file_name)
             #file_size = str(file_size) + " KB" if file_size < 1024 elif file_size < 1024 else str(round(file_size/1024)) + " GiB"  #"📁 " + 
