@@ -140,7 +140,7 @@ async def auto_filter(bot, update):
                 photo="https://telegra.ph/file/eeed28e24189e59e6255c.jpg",
                 caption=f"<b>നിങ്ങൾ ഉദ്ദേശിക്കുന്ന മൂവി ഏതാണ് എന്ന് എനിക്ക് 🙄അറിയാൻ കഴിയുന്നില്ല‌‌\nI do not know what movie you mean‌‌</b>\n\n<i>⚠️Just Send Me Movie/Series Name Without Spelling Mistake.Search Google To Get Currect Movie Name⚠️</i>\n"
                         f"<i>⭕️You can only get a movie if you hit the correct spelling of the movie‌‌</i>\n\n"
-                        f"<b>⚠️Try to find a movie in👉 @On_air_Filter_bot </b>",
+                        f"<b>👉Try to find a movie in👉 @On_air_Filter_bot </b>",
                 parse_mode="html",
                 reply_to_message_id=update.message_id
             )
@@ -167,7 +167,7 @@ async def auto_filter(bot, update):
         if len_result != 1:
             result[0].append(
                 [
-                    InlineKeyboardButton("Next 👉", callback_data=f"navigate(0|next|{query})")
+                    InlineKeyboardButton("👉Next👉", callback_data=f"navigate(0|next|{query})")
                 ]
             )
         
@@ -233,7 +233,7 @@ async def auto_filter(bot, update):
                 chat_id=update.chat.id,
                 photo="https://telegra.ph/file/9075ca7cbad944afaa823.jpg",
                 caption=f"<b>🎬 ᴍᴏᴠɪᴇ ɴᴀᴍᴇ :</b> <code><b><i>{query}</i></b></code>\n"
-                        f"<b>🔺 𝙽𝙾 𝙾𝙵 𝙵𝙸𝙻𝙴𝚂 : </b> <code><b><i>{len_results}</i></b></code>\n"
+                        f"<b>🎪 𝙽𝙾 𝙾𝙵 𝙵𝙸𝙻𝙴𝚂 : </b> <code><b><i>{len_results}</i></b></code>\n"
                         f"<b>🧞‍♂️ 𝚁𝚎𝚚𝚞𝚎𝚜𝚝𝚎𝚍 𝙱𝚢 :</b> <b><code>{update.from_user.first_name}</code></b>\n\n<b>👮‍♂️ ⁱᶠ ʸᵒᵘ ᵈᵒⁿ'ᵗ ˢᵉᵉ ᵗʰᵉ ᶠⁱˡᵉˢ ᵒᶠ ᵗʰᵉ ᵐᵒᵛⁱᵉ ʸᵒᵘ ᵃˢᵏᵉᵈ ᶠᵒʳ 👀ˡᵒᵒᵏ ᵃᵗ ⁿᵉˣᵗ ᵖᵃᵍᵉ </b>",
                 reply_markup=reply_markup,
                 parse_mode="html",
