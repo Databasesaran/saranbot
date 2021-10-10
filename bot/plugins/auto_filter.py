@@ -140,7 +140,7 @@ async def auto_filter(bot, update):
                 photo="https://telegra.ph/file/eeed28e24189e59e6255c.jpg",
                 caption=f"<b>നിങ്ങൾ ഉദ്ദേശിക്കുന്ന മൂവി ഏതാണ് എന്ന് എനിക്ക് 🙄അറിയാൻ കഴിയുന്നില്ല‌‌\nI do not know what movie you mean‌‌</b>\n\n<i>⚠️Just Send Me Movie/Series Name Without Spelling Mistake.Search Google To Get Currect Movie Name⚠️</i>\n"
                         f"<i>⭕️You can only get a movie if you hit the correct spelling of the movie‌‌</i>\n\n"
-                        f"<b>👉Try to find a movie in👉 @On_air_Filter_bot </b>",
+                        f"<b>👉👉Try to find a movie in👉 @On_air_Filter_bot </b>",
                 parse_mode="html",
                 reply_to_message_id=update.message_id
             )
@@ -173,7 +173,7 @@ async def auto_filter(bot, update):
         
         # Just A Decaration
         result[0].append([
-            InlineKeyboardButton(f"🎡 Page 1/{len_result if len_result < max_pages else max_pages} 🎡", callback_data="ignore")
+            InlineKeyboardButton(f"🌀 Page 1/{len_result if len_result < max_pages else max_pages} 🌀", callback_data="ignore")
         ])
         
         
